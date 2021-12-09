@@ -137,3 +137,6 @@ dmypy.json
 .pytype/
 
 .env
+
+# Tailwind
+node_modules/
