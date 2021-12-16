@@ -2,12 +2,12 @@ from django.db import models
 from teams.models import Team 
 from users.models import CustomUser, Profile
 from django.utils import timezone
-from django_random_id_model import RandomIDModel
-
-
+import uuid
 # Create your models here.
 
-class Pit_stats(RandomIDModel):
+class Pit_stats(models.Model):
+    id = models.CharField(primary_key = True,
+        default = uuid.uuid4, editable = False, max_length = 36)
     date_entered = models.DateTimeField(default=timezone.now())
     team_num = models.IntegerField(null = True)
     competition = models.CharField(max_length = 100, null = True)
@@ -26,9 +26,8 @@ class Pit_stats(RandomIDModel):
     robot_buddy_climb = models.CharField(max_length=100, null = True)
     robot_control_panel_rot = models.CharField(max_length=100, null = True)
     robot_control_panel_pos = models.CharField(max_length=100, null = True)
-    stat_id = models.CharField(max_length=15, null = True)
     notes = models.TextField(max_length=100, null = True)
-    is_incorrect = models.BooleanField()
+    is_incorrect = models.BooleanField(default=False)
     is_hidden = models.BooleanField(default=False)
 
     def __str__(self):
@@ -44,7 +43,9 @@ class Game_stats(models.Model):
     def __str__(self):
        return f'{self.team} Game Stat List'
 
-class Match(RandomIDModel):
+class Match(models.Model):
+    id = models.CharField(primary_key = True,
+        default = uuid.uuid4, editable = False, max_length = 36)
     stat = models.ForeignKey(Game_stats, on_delete = models.CASCADE, null = True)
     team_num = models.IntegerField(null = True)
     scout = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null = True, related_name='scouter')
@@ -67,10 +68,8 @@ class Match(RandomIDModel):
     defense_played = models.CharField(max_length=3, null = True)
     defense_percentage = models.IntegerField(null = True)
     robot_climb_help = models.CharField(max_length=100, null = True)
-    #For penalities ask how many if yes
     penalties = models.CharField(max_length=100, null = True)
     notes = models.TextField(max_length=100, null = True)
-    match_id = models.CharField(max_length=10, null = True)
     score = models.IntegerField(null = True)
 
 

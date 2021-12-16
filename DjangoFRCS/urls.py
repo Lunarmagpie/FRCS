@@ -33,13 +33,21 @@ urlpatterns = [
     path('scout/game/', scout_views.scout, name = 'scout-view'),
     path('scout/pit/', scout_views.pit_scout, name = 'pitscout-view'),
     path('datahub/', scout_views.scouthub, name = 'scouthub-view'),
-    path('pit-detail/<int:id>/', scout_views.PitDetail, name = 'pitdata-view'),
-    path('game-detail/<int:id>/', scout_views.ScoutDetail, name = 'gamedata-view'),
+    path('pit-detail/<str:id>/', scout_views.PitDetail, name = 'pitdata-view'),
+    path('game-detail/<str:id>/', scout_views.ScoutDetail, name = 'gamedata-view'),
     #path('pit-data/', scout_views.pitdata, name = 'pitdata-view'),
     #path('game-data/', scout_views.gamedata, name = 'gamedata-view'),
     path('list/pit', scout_views.PitListView.as_view(), name = 'pitdatahub-view'),
     path('list/game', scout_views.ScoutListView.as_view(), name = 'gamedatahub-view'),
+<<<<<<< HEAD
     path('flag/<int:id>', scout_views.pitFlag , name='pit-flag-view'),
+=======
+    path('flag/<str:id>', scout_views.pitFlag , name='pit-flag-view'),
+
+    
+    
+    
+>>>>>>> cb6ada47 (commit)
     url(r'^api/', include('api.urls')),
 ]
 

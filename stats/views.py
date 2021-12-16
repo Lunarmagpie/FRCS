@@ -14,7 +14,7 @@ from django.shortcuts import get_object_or_404
 from django.views import View
 from django.contrib import messages
 from users.models import Profile, CustomUser
-from random import randint
+from random import randint, random
 from django.db.models import Avg
 from django.core.mail import send_mail
 from django.conf import settings
@@ -143,10 +143,12 @@ def pit_scout(request):
             team_num = form.cleaned_data['team_num']
             obj.scout = Profile.objects.get(user=request.user)
             
-            obj.is_incorrect = False
+            #random_id = randomIDGenerator()
+            
+           
+          
             
             obj.scouted_team_num = request.user.team_num
-            obj.stat_id = randomIDGenerator()
 
             if not Team.objects.filter(team_num = team_num).exists():
                 Team.objects.create(team_num = team_num)
@@ -222,11 +224,11 @@ def pitFlag(request, id):
     instance = get_object_or_404(Pit_stats, id=id)
     form = pit_correct_form(instance=instance)
     
-    # subject = 'Thank you for registering to our site'
-    # message = 'it means a world to us '
-    # email_from = settings.EMAIL_HOST_USER
-    # recipient_list = ['jtyler03@optonline.net',]
-    # send_mail( subject, message, email_from, recipient_list )
+    subject = 'Thank you for registering to our site'
+    message = 'it means a world to us '
+    email_from = settings.EMAIL_HOST_USER
+    recipient_list = ['jtyler03@optonline.net',]
+    send_mail( subject, message, email_from, recipient_list)
     
     if request.method == 'POST':
         form = pit_correct_form(request.POST, instance=instance)

@@ -20,38 +20,38 @@
 
                 <form method='post'>
                     {% csrf_token %}
-                    <label id='label'>First Name</label>
+                    <label id='label' class='mt-4 mb-2 dark:text-white'>First Name</label>
                     {{form.first_name}}
                     <br>
-                    <label id='label'>Last Name</label>
+                    <label id='label'  class='mt-4 mb-2 dark:text-white'>Last Name</label>
                     {{form.last_name}}
                     <hr>
-                    <label id='label'>Settings</label>
+                    <label id='label'  class='mt-4 mb-2 dark:text-white'>Settings</label>
                     <br>
                     {{p_form.viewPitResubmit}}
-                    <label style='margin-left: 0%;' class="cbx" for="cbx"><span>
+                    <label style='margin-left: 0%;' class="cbx dark:text-white" for="cbx"><span>
                             <svg width="12px" height="10px" viewbox="0 0 12 10">
                                 <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                             </svg></span><span id="checkbox-text">Redirect on Pit resubmit</span></label><br>
-                    <label>If you submit scouting data that was already entered, you will be redirected to that
+                    <label class='dark:text-white'>If you submit scouting data that was already entered, you will be redirected to that
                         data</label><br>
                     {{p_form.relativeScoring}}
-                    <label style='margin-left: 0%;' class="cbx" for="cbx1"><span>
+                    <label style='margin-left: 0%;' class="cbx dark:text-white" for="cbx1"><span>
                             <svg width="12px" height="10px" viewbox="0 0 12 10">
                                 <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                             </svg></span><span id="checkbox-text">Switch Scoring </span></label><br>
-                    <label>Switch the scoring values based on actual game piece values or singular game piece
+                    <label class=' dark:text-white'>Switch the scoring values based on actual game piece values or singular game piece
                         values</label>
                     <br>
-                    <label>* On for single values / Off for point values</label>
+                    <label class=' dark:text-white'>* On for single values / Off for point values</label>
                     <button class='btn-default' id='submit-form' type='submit'>Submit</button>
                 </form>
 
-                <fieldset class="checkbox-group">
-                    <legend class="checkbox-group-legend" style='color: black;'>Choose your position</legend>
+                <fieldset class="checkbox-group mt-4">
+                    <legend class="checkbox-group-legend text-black dark:text-white" >Choose your theme</legend>
                     <div class="checkbox">
                         <label class="checkbox-wrapper">
-                            <input type="checkbox" id='mentor-cbx' class="checkbox-input" onclick='lightToggled()' />
+                            <input type="checkbox" id='light-cbx' class="checkbox-input" onclick='lightToggled()' />
                             <span class="checkbox-tile">
                                 <span class="checkbox-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -64,7 +64,7 @@
                     </div>
                     <div class="checkbox">
                         <label class="checkbox-wrapper">
-                            <input type="checkbox" id='member-cbx' class="checkbox-input" onclick=darkToggled() checked />
+                            <input type="checkbox" id='dark-cbx' class="checkbox-input" onclick=darkToggled() checked />
                             <span class="checkbox-tile">
                                 <span class="checkbox-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

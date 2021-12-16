@@ -124,6 +124,8 @@ TEMPLATES = [
 ]
 
 
+HASHID_FIELD_MIN_LENGTH = 15
+
 WSGI_APPLICATION = "DjangoFRCS.wsgi.application"
 
 # mutes profile picture warning on server startup

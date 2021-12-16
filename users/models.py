@@ -70,9 +70,7 @@ class CustomUser(AbstractBaseUser):
 
 #Profile model
 class Profile(RandomIDModel):
-    
-    range_start = 10**(7-1)
-    range_end = (10**7)-1
+
     
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
 
@@ -83,6 +81,7 @@ class Profile(RandomIDModel):
     canEditStats = models.BooleanField(default=True)
     relativeScoring = models.BooleanField(default=False)
     dm = models.BooleanField(default=False)
+    
     
     
     

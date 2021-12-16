@@ -37,10 +37,10 @@
                 {% endif %}
                 <div class='flex'>
                   <div>
-                    {% if not user.profile.image == 'http://127.0.0.1:8000/profile-pics/default.jpg' %}
+                    {% if user.profile.image == 'http://127.0.0.1:8000/profile-pics/default.jpg' %}
                     <a class='cursor-pointer' href='{% url "image-upload-view" request.user.profile.id %}'><img src='../../../profile-pics/{{request.user.profile.image}}' class='h-36 w-36 rounded-xl mr-3'></a>
                     {% else %}
-                    <img href='{% url "image-upload-view" request.user.profile.id %}' src='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png' class='h-36 w-36 rounded-xl mr-3'>
+                    <a class='cursor-pointer' href='{% url "image-upload-view" request.user.profile.id %}'><img href='{% url "image-upload-view" request.user.profile.id %}' src='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png' class='h-36 w-36 rounded-xl mr-3'></a>
                     {% endif %}
                   </div>
                   <div>

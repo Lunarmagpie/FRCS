@@ -17,23 +17,25 @@
 
 
   <div class="">
-    <main class=" overflow-y-auto">
+    <main class="">
       <div class="container px-6 mx-auto grid">
         <div class='flex justify-between'>
           <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
             Match Stats List
           </h2>
-          <button onclick='window.location.href="{% url "pitscout-view" %}"'
-            class="inline-flex items-center text-lg justify-center h-12 px-6 font-semibold tracking-wide text-white transition duration-200 bg-blue-500 rounded-lg hover:bg-blue-600 mt-3">
 
-            <p class='font-semibold text-white'>New Data</p>
-          </button>
         </div>
 
 
+        <div class='flex space-between space-x-3'>
+          <div class=' mx-auto mb-3 w-full'>
+            <input id="search-bar" class="form-search" placeholder="Search Team">
+          </div>
+          <button style='margin-top: 28px !important;' onclick='window.location.href="{% url "scout-view" %}"'
+            class="mt-4 inline-flex sm:w-40 w-56 items-center text-lg justify-center h-10 px-6 font-semibold tracking-wide text-white transition duration-200 bg-blue-500 rounded-xl hover:bg-blue-600 mt-3">
 
-        <div class=' mx-auto mb-3 w-full'>
-          <input id="search-bar" class="form-search" placeholder="Search Team">
+            <p class='font-semibold text-white'>New Data</p>
+          </button>
         </div>
 
         <div class="flex flex-col w-full mx-auto">

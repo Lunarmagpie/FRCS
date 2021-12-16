@@ -18,7 +18,7 @@
           </h2>
           <div>
             <button onclick='window.location.href="{% url "team-info-view" %}"'
-              class="inline-flex items-center text-lg justify-center h-10 w-full sm:w-56 px-6 font-semibold tracking-wide text-white transition duration-200 bg-black rounded-lg">
+              class="inline-flex items-center text-lg justify-center h-10 w-full sm:w-56 px-6 font-semibold tracking-wide text-white transition duration-200 bg-black rounded-xl">
 
               <p class='font-semibold text-white'>Edit team info</p>
             </button>
@@ -27,7 +27,7 @@
         </div>
         {% if is_hidden %}
         <div
-          class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-red-100 bg-red-500 rounded-lg shadow-md focus:outline-none focus:shadow-outline-blue "
+          class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-red-100 bg-red-500 rounded-xl shadow-md focus:outline-none focus:shadow-outline-blue "
           href="https://github.com/estevanmaito/windmill-dashboard">
           <div class="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
@@ -45,7 +45,7 @@
         {% endif %}
         <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-2">
 
-          <div class="flex items-center p-4 bg-white  rounded-xl shadow-xs dark:bg-gray-800">
+          <div class="flex items-center p-4 bg-cream rounded-xl shadow-xs dark:bg-secondary">
             <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
@@ -54,10 +54,10 @@
               </svg>
             </div>
             <div>
-              <p class="mb-2 mt-2 text-lg font-medium text-gray-600 dark:text-black">
+              <p class="mb-2 mt-2 text-lg font-medium text-gray-600 dark:text-gray-400">
                 Users Registered
               </p>
-              <p class="text-lg font-semibold text-gray-700 dark:text-black">
+              <p class="text-lg font-semibold text-gray-700 dark:text-white">
                 {{usersCount}}
               </p>
             </div>
@@ -99,10 +99,10 @@
               </svg>
             </div>
             <div>
-              <p class="mb-2 mt-2 text-lg font-medium text-gray-600 dark:text-black">
+              <p class="mb-2 mt-2 text-lg font-medium text-gray-600 dark:text-gray-400">
                 Data Correct
               </p>
-              <p class="text-lg font-semibold text-gray-700 dark:text-black">
+              <p class="text-lg font-semibold text-gray-700 dark:text-white">
                 The pit data scouted is correct
               </p>
             </div>
