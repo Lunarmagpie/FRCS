@@ -140,3 +140,11 @@ dmypy.json
 
 # Tailwind
 node_modules/
+
+# IDE Specific ignore
+.idea
+.vscode
+.vs
+
+# History
+.history
