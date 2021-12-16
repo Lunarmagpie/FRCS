@@ -3,5 +3,5 @@ from django.urls import include, path
 from . import views
 
 urlpatterns = [
-    path('', views.feedbackView, name='feedback-view'),
+    path("", views.feedbackView, name="feedback-view"),
 ]

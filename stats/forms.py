@@ -5,65 +5,63 @@ from users.models import CustomUser
 import json, requests
 
 
-
 BOT_HEIGHT = [
- ('Low - below 28"', 'Low - below 28"'),
- ('High - above 28"', 'High - above 28"'),
+    ('Low - below 28"', 'Low - below 28"'),
+    ('High - above 28"', 'High - above 28"'),
 ]
 
 
 DRIVETRAIN_TYPE = [
-    ('4 Wheel Skid', '4 Wheel Skid'),
-    ('6 Wheel Skid', '6 Wheel Skid'),
-    ('8 Wheel Skid', '8 Wheel Skid'),
-    ('Treads', 'Treads'),
-    ('Omni', 'Omni'),
-    ('Swerve','Swerve'),
-    ('Other','Other'),	
+    ("4 Wheel Skid", "4 Wheel Skid"),
+    ("6 Wheel Skid", "6 Wheel Skid"),
+    ("8 Wheel Skid", "8 Wheel Skid"),
+    ("Treads", "Treads"),
+    ("Omni", "Omni"),
+    ("Swerve", "Swerve"),
+    ("Other", "Other"),
 ]
 
 VISION_TYPE = [
-    
- ('None', 'None'),
- ('Limelight', 'Limelight'),
- ('Raspberry Pi', 'Raspberry Pi'),
- ('Other', 'Other'),
+    ("None", "None"),
+    ("Limelight", "Limelight"),
+    ("Raspberry Pi", "Raspberry Pi"),
+    ("Other", "Other"),
 ]
 
 GOAL_SHOT = [
- 
- ('Lower', 'Lower'),
- ('Inner', 'Inner'),
- ('Outer', 'Outer'),
- ('Both Low and High', 'Both Low and High'),
+    ("Lower", "Lower"),
+    ("Inner", "Inner"),
+    ("Outer", "Outer"),
+    ("Both Low and High", "Both Low and High"),
 ]
-
 
 
 TRUE_FALSE = [
-    ('No', 'No'),
-    ('Yes', 'Yes'),
+    ("No", "No"),
+    ("Yes", "Yes"),
 ]
 
 PENALTIES = [
-    ('None', 'None'),
-    ('Disbaled', 'Disabled'),
-    ('Foul', 'Foul'),
-    ('Tech Foul', 'Tech Foul'),
-    ('Yellow Card', 'Yellow Card'),
-    ('Red Card', 'Red Card')
+    ("None", "None"),
+    ("Disbaled", "Disabled"),
+    ("Foul", "Foul"),
+    ("Tech Foul", "Tech Foul"),
+    ("Yellow Card", "Yellow Card"),
+    ("Red Card", "Red Card"),
 ]
 
 CP = [
-    ('No', 'No'),
-    ('Positional', 'Positional'),
-    ('Rotational', 'Rotational'),
-    ('Both Position and Rotation', 'Both Position and Rotation')
-    
+    ("No", "No"),
+    ("Positional", "Positional"),
+    ("Rotational", "Rotational"),
+    ("Both Position and Rotation", "Both Position and Rotation"),
 ]
 
+
 class pit_scout_form(ModelForm):
-    robot_drivetrain_type = forms.CharField(widget=forms.Select(choices=DRIVETRAIN_TYPE))
+    robot_drivetrain_type = forms.CharField(
+        widget=forms.Select(choices=DRIVETRAIN_TYPE)
+    )
     robot_highlow = forms.CharField(widget=forms.Select(choices=BOT_HEIGHT))
     robot_vision_type = forms.CharField(widget=forms.Select(choices=VISION_TYPE))
     robot_goal = forms.CharField(widget=forms.Select(choices=GOAL_SHOT))
@@ -76,25 +74,35 @@ class pit_scout_form(ModelForm):
 
     class Meta:
         model = Pit_stats
-        exclude = ['scout', 'scouted_team_num', 'date_entered', 'is_incorrect', 'is_hidden', 'reference_id']
+        exclude = [
+            "scout",
+            "scouted_team_num",
+            "date_entered",
+            "is_incorrect",
+            "is_hidden",
+            "reference_id",
+        ]
+
 
 class pit_correct_form(ModelForm):
     is_incorrect = forms.BooleanField()
 
     class Meta:
         model = Pit_stats
-        fields = ['is_incorrect']
+        fields = ["is_incorrect"]
+
 
 MATCH_TYPE = [
-    ('Qualifying Match','Qualifying Match'),
-    ('Quarter Final','Quarter Final'),
-    ('Semi Final','Semi Final'),
-    ('Final','Final'),
-    ('Elimination Final','Elimination Final')
+    ("Qualifying Match", "Qualifying Match"),
+    ("Quarter Final", "Quarter Final"),
+    ("Semi Final", "Semi Final"),
+    ("Final", "Final"),
+    ("Elimination Final", "Elimination Final"),
 ]
 
+
 class game_scout_form(ModelForm):
-    #match_number
+    # match_number
     match_type = forms.CharField(widget=forms.Select(choices=MATCH_TYPE))
     initiation_line = forms.CharField(widget=forms.Select(choices=TRUE_FALSE))
     robot_climb = forms.CharField(widget=forms.Select(choices=TRUE_FALSE))
@@ -104,8 +112,14 @@ class game_scout_form(ModelForm):
     penalties = forms.CharField(widget=forms.Select(choices=PENALTIES))
     control_panel_rot = forms.CharField(widget=forms.Select(choices=TRUE_FALSE))
     control_panel_pos = forms.CharField(widget=forms.Select(choices=TRUE_FALSE))
- 
+
     class Meta:
         model = Match
-        exclude = ['team_num' , 'stat', 'scout', 'match_id', 'scouted_team_code', 'score']
-        
+        exclude = [
+            "team_num",
+            "stat",
+            "scout",
+            "match_id",
+            "scouted_team_code",
+            "score",
+        ]

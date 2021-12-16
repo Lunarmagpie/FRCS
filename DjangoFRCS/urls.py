@@ -19,33 +19,28 @@ from stats import views as scout_views
 from . import settings
 from rest_framework.routers import DefaultRouter
 from django.conf.urls import url
-from rest_framework.authtoken import views 
+from rest_framework.authtoken import views
 from django.conf.urls import url
 from rest_framework.schemas import get_schema_view
 from rest_framework.renderers import CoreJSONRenderer
 
 
-
 urlpatterns = [
-    path('', include('users.urls')),
-    path('', include('api.urls')),
-    path('feedback/', include('feedback.urls')),
-    path('scout/game/', scout_views.scout, name = 'scout-view'),
-    path('scout/pit/', scout_views.pit_scout, name = 'pitscout-view'),
-    path('datahub/', scout_views.scouthub, name = 'scouthub-view'),
-    path('pit-detail/<str:id>/', scout_views.PitDetail, name = 'pitdata-view'),
-    path('game-detail/<str:id>/', scout_views.ScoutDetail, name = 'gamedata-view'),
-    #path('pit-data/', scout_views.pitdata, name = 'pitdata-view'),
-    #path('game-data/', scout_views.gamedata, name = 'gamedata-view'),
-    path('list/pit', scout_views.PitListView.as_view(), name = 'pitdatahub-view'),
-    path('list/game', scout_views.ScoutListView.as_view(), name = 'gamedatahub-view'),
-    path('flag/<str:id>', scout_views.pitFlag , name='pit-flag-view'),
-
-    
-    
-    
-    url(r'^api/', include('api.urls')),
+    path("", include("users.urls")),
+    path("", include("api.urls")),
+    path("feedback/", include("feedback.urls")),
+    path("scout/game/", scout_views.scout, name="scout-view"),
+    path("scout/pit/", scout_views.pit_scout, name="pitscout-view"),
+    path("datahub/", scout_views.scouthub, name="scouthub-view"),
+    path("pit-detail/<str:id>/", scout_views.PitDetail, name="pitdata-view"),
+    path("game-detail/<str:id>/", scout_views.ScoutDetail, name="gamedata-view"),
+    # path('pit-data/', scout_views.pitdata, name = 'pitdata-view'),
+    # path('game-data/', scout_views.gamedata, name = 'gamedata-view'),
+    path("list/pit", scout_views.PitListView.as_view(), name="pitdatahub-view"),
+    path("list/game", scout_views.ScoutListView.as_view(), name="gamedatahub-view"),
+    path("flag/<str:id>", scout_views.pitFlag, name="pit-flag-view"),
+    url(r"^api/", include("api.urls")),
 ]
 
 if settings.DEBUG:
-    urlpatterns += [path('admin/', admin.site.urls)]
+    urlpatterns += [path("admin/", admin.site.urls)]

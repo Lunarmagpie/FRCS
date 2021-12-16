@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,13 +22,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = 'soyccfn)r&ad^9*k(v64%_it=0d7qqsv04$%0=!xc#yrek)8sp'
+SECRET_KEY = "soyccfn)r&ad^9*k(v64%_it=0d7qqsv04$%0=!xc#yrek)8sp"
 
 try:
     None
-    #SECRET_KEY = os.environ['FRCS_SECRET']
+    # SECRET_KEY = os.environ['FRCS_SECRET']
 except KeyError:
-    print("Put the secret key in your environment as 'FRCS_SECRET' then restart your computer")
+    print(
+        "Put the secret key in your environment as 'FRCS_SECRET' then restart your computer"
+    )
     print("This is for security issues")
 
 # SECURITY WARNING: don't run with debug tuned on in production!
@@ -72,13 +73,10 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
 ]
 
-SERIALIZATION_MODULES = {
-    'json': 'wadofstuff.django.serializers.json'
-}
+SERIALIZATION_MODULES = {"json": "wadofstuff.django.serializers.json"}
 
 
 MIDDLEWARE = [
-    
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -89,15 +87,15 @@ MIDDLEWARE = [
 ]
 
 
-# --- Specify the authentication backends 
+# --- Specify the authentication backends
 
 
 # AUTHENTICATION_BACKENDS = ('users.backends.CustomUserAuth',)
 
 # API Authentication settings
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',  
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
     ],
 }
 
@@ -157,10 +155,18 @@ DATABASES = {
 
 
 AUTH_PASSWORD_VALIDATORS = [
-    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",},
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+    },
 ]
 
 
@@ -189,12 +195,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 LOGIN_URL = "login-view"
 
 
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.google.com'
-EMAIL_HOST_USER = 'frcsassistant@gmail.com'
-EMAIL_HOST_PASSWORD = 'bbqdjfcccrjagkyu'
+EMAIL_HOST = "smtp.google.com"
+EMAIL_HOST_USER = "frcsassistant@gmail.com"
+EMAIL_HOST_PASSWORD = "bbqdjfcccrjagkyu"
 EMAIL_PORT = 587
 
 
