@@ -11,8 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from DjangoFRCS import env
-
+from DjangoFRCS.env import env
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -24,21 +23,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-from DjangoFRCS.env import Environment
-
-SECRET_KEY = 'soyccfn)r&ad^9*k(v64%_it=0d7qqsv04$%0=!xc#yrek)8sp'
-
-config = Environment()
 
 try:
-    None
-    #SECRET_KEY = os.environ['FRCS_SECRET']
+    SECRET_KEY = env["SECRET_KEY"]
 except KeyError:
     print("Put the secret key in your environment as 'FRCS_SECRET' then restart your computer")
     print("This is for security issues")
 
 # SECURITY WARNING: don't run with debug tuned on in production!
-DEBUG = True
+DEBUG = True if env["DEBUG"] == "True" else False
 
 if DEBUG:
     ALLOWED_HOSTS = ["localhost", "*", "192.168.86.37"]
