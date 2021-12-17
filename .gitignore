@@ -137,3 +137,11 @@ dmypy.json
 .pytype/
 
 .env
+
+# Nodejs
+*/node_modules
+
+# Editor specific
+.vscode
+.history
+.idea
